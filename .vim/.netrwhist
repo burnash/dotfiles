@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/burnash/projects/thepythonjobs/registration/templates'
+let g:netrw_dirhist_2='/home/burnash/.mozilla/firefox/gryvu0ry.default/extensions/chromebug@johnjbarton.com/content'
+let g:netrw_dirhist_3='/home/burnash/projects/motorum/edit_templates/extension/burin/content'
+let g:netrw_dirhist_4='/home/burnash/projects/sample-app'
+let g:netrw_dirhist_5='/home/burnash/.mozilla/firefox/gryvu0ry.default'
+let g:netrw_dirhist_6='/home/burnash/projects/motorum/edit_templates/extension/burin'
