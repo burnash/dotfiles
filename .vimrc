@@ -6,6 +6,7 @@ set tabstop=4                   " indentation levels every four columns
 set expandtab                   " convert all tabs typed to spaces
 set shiftwidth=4                " indent/outdent by four columns
 set shiftround                  " indent/outdent to nearest tabstop
+set nowrap
 
 set matchpairs+=<:>             " allow % to bounce between angles too
 
@@ -13,12 +14,16 @@ set vb                          " use visual bell instead of beeping
 
 set incsearch                   " incremental search
 
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search patter is all 
+
+set hlsearch                    " highlight search
+
+set title                       " change the terminal's title
+
 " syntax highlighting
 set bg=light
 syntax on
-
-"highlight search
-set hlsearch
 
 " dont use Q for Ex mode
 map Q :q
@@ -39,7 +44,7 @@ nmap <s-tab> ^i<bs><esc>
 filetype on
 nnoremap <silent> <F8> :TlistToggle<CR>
 
-"This unsets the "last search pattern" register by hitting return
+" This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
 " Toggle line numbers and fold column for easy copying:
@@ -51,7 +56,6 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
 " following some perl specific settings
 "
-
 
 " autoindent
 autocmd FileType perl set autoindent|set smartindent
@@ -75,6 +79,23 @@ autocmd FileType perl set autowrite
 au FileType c,cpp,java,php,perl,python,html,htmldjango,mason,tt2html,css au BufWritePre * :%s/\s\+$//e
 
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+" NERDTree
+nmap ,n :NERDTreeClose<CR>:NERDTreeToggle<CR>
+nmap ,m :NERDTreeClose<CR>:NERDTreeFind<CR>
+nmap ,N :NERDTreeClose<CR>
+
+" Don't display these kinds of files
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+
+"let NERDTreeShowBookmarks=1       " Show the bookmarks table on startup
+"let NERDTreeShowFiles=1           " Show hidden files, too
+"let NERDTreeShowHidden=1
+"let NERDTreeQuitOnOpen=1          " Quit on opening files from the tree
+"let NERDTreeHighlightCursorline=1 " Highlight the selected entry in the tree
+"let NERDTreeMouseMode=2           " Use a single click to fold/unfold directories
+                                  " and a double click to open files
 
 " Open settings
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
