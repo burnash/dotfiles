@@ -74,10 +74,10 @@ autocmd FileType perl set makeprg=perl\ -wc\ %\ $*
 autocmd FileType perl set errorformat=%f:%l:%m
 autocmd FileType perl set autowrite
 
-
-" trim trailing whitespace
+" Trim trailing whitespace
 au FileType c,cpp,java,php,perl,python,html,htmldjango,mason,tt2html,css au BufWritePre * :%s/\s\+$//e
 
+" Restore position in a file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
 " NERDTree
