@@ -81,8 +81,8 @@ au FileType c,cpp,java,php,perl,python,html,htmldjango,mason,tt2html,css au BufW
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
 " NERDTree
-nmap ,n :NERDTreeClose<CR>:NERDTreeToggle<CR>
-nmap ,m :NERDTreeClose<CR>:NERDTreeFind<CR>
+nmap ,m :NERDTreeToggle<CR>
+nmap ,n :NERDTreeClose<CR>:NERDTreeFind<CR>
 nmap ,N :NERDTreeClose<CR>
 
 " Don't display these kinds of files
