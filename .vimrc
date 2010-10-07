@@ -20,6 +20,7 @@ set smartcase                   " ignore case if search patter is all
 set hlsearch                    " highlight search
 
 set title                       " change the terminal's title
+set ruler                       " ruler
 
 " syntax highlighting
 set bg=light
@@ -108,4 +109,9 @@ nnoremap <C-l> <C-w>l
 
 " Universal semicolon
 nnoremap ; :
+
+map <F9> :w!<CR>:!python %<CR>
+map <F12> :set number!<Bar>set number?<CR>
+"map <silent><F9> <ESC>:!pychecker %<CR>
+map <silent><F3> <ESC>:w!<ESC>:!python -m pdb %<CR>
 
