@@ -114,5 +114,3 @@ map <F9> :w!<CR>:!python %<CR>
 map <F12> :set number!<Bar>set number?<CR>
 "map <silent><F9> <ESC>:!pychecker %<CR>
 map <silent><F3> <ESC>:w!<ESC>:!python -m pdb %<CR>
-
-filetype plugin on
