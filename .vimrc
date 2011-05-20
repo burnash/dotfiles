@@ -15,7 +15,7 @@ set vb                          " use visual bell instead of beeping
 set incsearch                   " incremental search
 
 set ignorecase                  " ignore case when searching
-set smartcase                   " ignore case if search patter is all 
+set smartcase                   " ignore case if search patter is all
 
 set hlsearch                    " highlight search
 
@@ -114,3 +114,5 @@ map <F9> :w!<CR>:!python %<CR>
 map <F12> :set number!<Bar>set number?<CR>
 "map <silent><F9> <ESC>:!pychecker %<CR>
 map <silent><F3> <ESC>:w!<ESC>:!python -m pdb %<CR>
+
+source $HOME/.vim/ru_mapping.vimrc
