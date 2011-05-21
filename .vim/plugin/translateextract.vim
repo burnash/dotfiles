@@ -3,18 +3,24 @@ command! -nargs=1 -range T call s:ExtractTranslation(function('s:WrapInErb'), <q
 " Bare text (just text)
 "command! -nargs=1 -range Tj call s:ExtractTranslationBareText(<q-args>)
 " Quoted text (kwoated;)
-"command! -nargs=1 -range Tk call s:ExtractTranslationQuoated(<q-args>)
+command! -nargs=1 -range Tk call s:ExtractTranslation(function('s:WrapInUnderscore'), <q-args>)
 
 function! s:WrapInErb(msgid)
   return "<%=_('".a:msgid."')%>"
+endfunction
+
+function! s:WrapInUnderscore(msgid)
+  return "_('".a:msgid."')"
 endfunction
 
 function! s:ExtractTranslation(WrapperFunc, msgid)
   " yank current visual selection to reg x
   normal gv"xy
   " put new string value in reg x
-  " would do your processing here in actual script
   let msgstr = @x
+  " Strip whitespaces and quotes
+  let msgstr = substitute(msgstr, '^\([''"]\|\s\)\+', "", "")
+  let msgstr = substitute(msgstr, '\([''"]\|\s\)\+$', "", "")
   " Remove newlines - to be done
    
   let replacement = call(a:WrapperFunc, [a:msgid])
@@ -23,10 +29,10 @@ function! s:ExtractTranslation(WrapperFunc, msgid)
 
   " re-select area and delete
   normal gvd
-  " paste new string  <%=_('lue')%>back in
-  normal "xp
+  " paste new string 
+  normal "xP
 endfunction
-
+ 
 function! s:AppendTranslation(msgid, msgstr)
   let filename = g:po_file
   " open file
