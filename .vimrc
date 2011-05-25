@@ -116,3 +116,5 @@ map <F12> :set number!<Bar>set number?<CR>
 map <silent><F3> <ESC>:w!<ESC>:!python -m pdb %<CR>
 
 source $HOME/.vim/ru_mapping.vimrc
+
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
