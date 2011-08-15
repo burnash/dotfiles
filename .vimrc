@@ -1,5 +1,5 @@
 set autoindent                  " preserve current indent on new lines
-set textwidth=78                " wrap at this column
+set textwidth=0                 " disable wrap
 set backspace=indent,eol,start  " make backspaces delete sensibly
 
 set tabstop=4                   " indentation levels every four columns
@@ -114,6 +114,9 @@ map <F9> :w!<CR>:!python %<CR>
 map <F12> :set number!<Bar>set number?<CR>
 "map <silent><F9> <ESC>:!pychecker %<CR>
 map <silent><F3> <ESC>:w!<ESC>:!python -m pdb %<CR>
+
+map <F8> :w!<CR>:!ruby %<CR>
+map <F7> :w!<CR>:!rdebug %<CR>
 
 source $HOME/.vim/ru_mapping.vimrc
 
