@@ -1,3 +1,6 @@
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 set autoindent                  " preserve current indent on new lines
 set textwidth=0                 " disable wrap
 set backspace=indent,eol,start  " make backspaces delete sensibly
@@ -44,6 +47,8 @@ nmap <s-tab> ^i<bs><esc>
 " taglist
 filetype on
 nnoremap <silent> <F8> :TlistToggle<CR>
+
+filetype plugin on
 
 " This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
