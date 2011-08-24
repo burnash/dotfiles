@@ -48,7 +48,7 @@ nmap <s-tab> ^i<bs><esc>
 filetype on
 nnoremap <silent> <F8> :TlistToggle<CR>
 
-filetype plugin on
+filetype plugin indent on
 
 " This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
