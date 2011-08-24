@@ -1,0 +1,6 @@
+[submodule ".vim/bundles/pyflakes"]
+	path = .vim/bundles/pyflakes
+	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
