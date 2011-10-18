@@ -25,6 +25,8 @@ set hlsearch                    " highlight search
 set title                       " change the terminal's title
 set ruler                       " ruler
 
+set fillchars=vert:\│           " change splitter
+
 " syntax highlighting
 set bg=light
 syntax on
