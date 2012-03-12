@@ -4,6 +4,9 @@ call pathogen#helptags()
 set autoindent                  " preserve current indent on new lines
 set textwidth=0                 " disable wrap
 set backspace=indent,eol,start  " make backspaces delete sensibly
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
 
 set tabstop=4                   " indentation levels every four columns
 set expandtab                   " convert all tabs typed to spaces
@@ -25,7 +28,7 @@ set hlsearch                    " highlight search
 set title                       " change the terminal's title
 set ruler                       " ruler
 
-set fillchars=vert:\│           " change splitter
+set fillchars=vert:\|           " change splitter
 
 " syntax highlighting
 set bg=light
@@ -122,7 +125,7 @@ map <F12> :set number!<Bar>set number?<CR>
 "map <silent><F9> <ESC>:!pychecker %<CR>
 map <silent><F3> <ESC>:w!<ESC>:!python -m pdb %<CR>
 
-map <F8> :w!<CR>:!ruby %<CR>
+map <F8> :w!<CR>:!scala %<CR>
 map <F7> :w!<CR>:!rdebug %<CR>
 
 source $HOME/.vim/ru_mapping.vimrc
