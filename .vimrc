@@ -30,6 +30,9 @@ set ruler                       " ruler
 
 set fillchars=vert:\|           " change splitter
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
 " syntax highlighting
 set bg=light
 syntax on
