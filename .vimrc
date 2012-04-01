@@ -8,9 +8,9 @@ set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
 
-set tabstop=4                   " indentation levels every four columns
+set tabstop=2                   " indentation levels every two columns
 set expandtab                   " convert all tabs typed to spaces
-set shiftwidth=4                " indent/outdent by four columns
+set shiftwidth=2                " indent/outdent by two columns
 set shiftround                  " indent/outdent to nearest tabstop
 set nowrap
 
@@ -77,6 +77,10 @@ autocmd FileType perl set autoindent|set smartindent
 " 4 space tabs
 autocmd FileType perl set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=4
 
+" 4 space tabs
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=4
+
+
 " show matching brackets
 autocmd FileType perl set showmatch
 
@@ -98,6 +102,12 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 nmap ,m :NERDTreeToggle<CR>
 nmap ,n :NERDTreeClose<CR>:NERDTreeFind<CR>
 nmap ,N :NERDTreeClose<CR>
+
+" Buffergator
+nnoremap <silent> ,b :BuffergatorToggle<CR>
+nnoremap <silent> ,B :BuffergatorClose<CR>
+nnoremap <silent> ,t :BuffergatorTabsOpen<CR>
+nnoremap <silent> ,T :BuffergatorTabsClose<CR>
 
 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
