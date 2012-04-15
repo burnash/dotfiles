@@ -144,3 +144,20 @@ map <F7> :w!<CR>:!rdebug %<CR>
 source $HOME/.vim/ru_mapping.vimrc
 
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" CoffeeTags
+if executable('coffeetags')
+  let g:tagbar_type_coffee = {
+        \ 'ctagsbin' : 'coffeetags',
+        \ 'ctagsargs' : '',
+        \ 'kinds' : [
+        \ 'f:functions',
+        \ 'o:object',
+        \ ],
+        \ 'sro' : ".",
+        \ 'kind2scope' : {
+        \ 'f' : 'object',
+        \ 'o' : 'object',
+        \ }
+        \ }
+endif

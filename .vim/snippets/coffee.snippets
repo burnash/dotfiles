@@ -1,142 +1,231 @@
-# Class
-snippet class
-	class ${1:name}
-		constructor: (${2:params...}) ->
-			${3://body...}
-
-# Funcion
+# Array comprehension
+snippet fora
+	for ${1:name} in ${2:array}
+		${3:// body...}
+# Object comprehension
+snippet foro
+	for ${1:key}, ${2:value} of ${3:object}
+		${4:// body...}
+# Range comprehension (inclusive)
+snippet forr
+	for ${1:name} in [${2:start}..${3:finish}]
+		${4:// body...}
+snippet forrb
+	for ${1:name} in [${2:start}..${3:finish}] by ${4:step}
+		${5:// body...}
+# Range comprehension (exclusive)
+snippet forrex
+	for ${1:name} in [${2:start}...${3:finish}]
+		${4:// body...}
+snippet forrexb
+	for ${1:name} in [${2:start}...${3:finish}] by ${4:step}
+		${5:// body...}
+# Function
 snippet fun
-	${1:function_name} = (${2:argumen}) ->
-		${3: //body...}
+	(${1:args}) ->
+		${2:// body...}
+# Function (bound)
+snippet bfun
+	(${1:args}) =>
+		${2:// body...}
+# Class
+snippet cla class ..
+	class ${1:`substitute(Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+		${2}
+snippet cla class .. constructor: ..
+	class ${1:`substitute(Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+		constructor: (${2:args}) ->
+			${3}
 
-# Asignation if
-snippet =if
-	${1:variable} = ${2:valor} if ${3:condition}
+		${4}
+snippet cla class .. extends ..
+	class ${1:`substitute(Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} extends ${2:ParentClass}
+		${3}
+snippet cla class .. extends .. constructor: ..
+	class ${1:`substitute(Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} extends ${2:ParentClass}
+		constructor: (${3:args}) ->
+			${4}
 
-# Asignation if and
-snippet ifand
-	if ${1} and ${2}
+		${5}
+# If
+snippet if
+	if ${1:condition}
+		${2:// body...}
+# If __ Else
+snippet ife
+	if ${1:condition}
+		${2:// body...}
+	else
+		${3:// body...}
+# Else if
+snippet elif
+	else if ${1:condition}
+		${2:// body...}
+# Ternary If
+snippet ifte
+	if ${1:condition} then ${2:value} else ${3:other}
+# Unless
+snippet unl
+	${1:action} unless ${2:condition}
+# Switch
+snippet swi
+	switch ${1:object}
+		when ${2:value}
+			${3:// body...}
 
-# Asignation if then else
-snippet =ifthen
-	${1: value} = if ${2:option} then ${3:asignation} else ${4:else}
-
-# Asignation or=
-snippet or=
-	${1:options} or= ${2:defaults}
-
-# Asignation forin
-snippet forin
-	${1:countdown} = (${2:num} for ${3:num} in ${4:[10..1]})
-
-# Asignation forof
-snippet forof
-	${1:ages} = for ${2:key}, ${3:value} of ${4:yearsOld}
-		key + " is " + value
-
-# Asignation while
-snippet while
-	${1:action()} while ${2:condition}
-
-# Asignation until
-snippet until
-	${1:action()} until ${2:condition}
-
-# Asignation forindo
-snippet forindo
-	for ${1:filename} in ${2:list}
-		do (${3:filename}) ->
-
-# Asignation try
+# Log
+snippet log
+	console.log ${1}
+# Try __ Catch
 snippet try
 	try
-		${1:expresion}
-	catch error
-		${2:error}
-
-# Asignation tryfin
-snippet tryfin
-	try
-		${1:expresion}
-	catch error
-		${2:error}
-	finally
-		${3:cleanAll()}
-
-# Asignation ?=
-snippet ?=
-	${1:speed} ?= ${2:75}
-
-# Asignation =?
-snippet =?
-	${1:footprints} = ${2:yetis} ? ${3:bear}
-
-# Asignation switch
-snippet switch
-	switch ${1:day}
-		when ${2:Mon} then ${3:go work}
-		else ${4:go relax}
-
-# Asignation ##
-snippet ##
-	###
-		${1:comment}
-	###
-
-## Jasmine Snippets
-## Thibault NORMAND <Zenithar>
-##
-snippet desc
-	# ${1:Specification}
-
-describe '${2:Model or When ...}', ->
-	${3}
-	return
-		
-snippet it
-	it '${1:Should ...}', ->
-		${2}
-
-snippet exp
-	expect(${1:predicate})
-
-snippet exp=
-	expect(${1:predicate}).toEqual ${2:value}
-
-snippet expmatch
-	expect(${1:predicate}).toMatch /${2:regex}/
-
-snippet expdef
-	expect(${1:predicate}).toBeDefined
-
-snippet expnull
-	expect(${1:predicate}).toBeNull
-
-snippet exptrue
-	expect(${1:predicate}).toBeThruthy
-
-snippet expfalse
-	expect(${1:predicate}).toBeFalsy()
-
-snippet expcon
-	expect(${1:predicate}).toContain ${2:value}
-
-snippet befe
-	# Configuration 
-	beforeEach ->
 		${1}
+	catch ${2:error}
+		${3}
+# Require
+snippet req
+	${2:$1} = require '${1:sys}'${3}
 
-snippet spyon
-	spyOn ${1:object}, ${2:method}
 
-snippet expcall
-	expect(${1:predicate}).wasCalled
-
-snippet expncall
-	expect(${1:predicate}).wasNotCalled
-
-snippet expcallw
-	expect(${1:predicate}).wasCalledWith ${2:arguments}
-
-snippet expncallw
-	expect(${1:predicate}).wasNotCalledWith ${2:arguments}
+## Class
+#snippet class
+#	class ${1:name}
+#		constructor: (${2:params...}) ->
+#			${3://body...}
+#
+## Funcion
+#snippet fun
+#	${1:function_name} = (${2:argumen}) ->
+#		${3: //body...}
+#
+## Asignation if
+#snippet =if
+#	${1:variable} = ${2:valor} if ${3:condition}
+#
+## Asignation if and
+#snippet ifand
+#	if ${1} and ${2}
+#
+## Asignation if then else
+#snippet =ifthen
+#	${1: value} = if ${2:option} then ${3:asignation} else ${4:else}
+#
+## Asignation or=
+#snippet or=
+#	${1:options} or= ${2:defaults}
+#
+## Asignation forin
+#snippet forin
+#	${1:countdown} = (${2:num} for ${3:num} in ${4:[10..1]})
+#
+## Asignation forof
+#snippet forof
+#	${1:ages} = for ${2:key}, ${3:value} of ${4:yearsOld}
+#		key + " is " + value
+#
+## Asignation while
+#snippet while
+#	${1:action()} while ${2:condition}
+#
+## Asignation until
+#snippet until
+#	${1:action()} until ${2:condition}
+#
+## Asignation forindo
+#snippet forindo
+#	for ${1:filename} in ${2:list}
+#		do (${3:filename}) ->
+#
+## Asignation try
+#snippet try
+#	try
+#		${1:expresion}
+#	catch error
+#		${2:error}
+#
+## Asignation tryfin
+#snippet tryfin
+#	try
+#		${1:expresion}
+#	catch error
+#		${2:error}
+#	finally
+#		${3:cleanAll()}
+#
+## Asignation ?=
+#snippet ?=
+#	${1:speed} ?= ${2:75}
+#
+## Asignation =?
+#snippet =?
+#	${1:footprints} = ${2:yetis} ? ${3:bear}
+#
+## Asignation switch
+#snippet switch
+#	switch ${1:day}
+#		when ${2:Mon} then ${3:go work}
+#		else ${4:go relax}
+#
+## Asignation ##
+#snippet ##
+#	###
+#		${1:comment}
+#	###
+#
+### Jasmine Snippets
+### Thibault NORMAND <Zenithar>
+###
+#snippet desc
+#	# ${1:Specification}
+#
+#describe '${2:Model or When ...}', ->
+#	${3}
+#	return
+#
+#snippet it
+#	it '${1:Should ...}', ->
+#		${2}
+#
+#snippet exp
+#	expect(${1:predicate})
+#
+#snippet exp=
+#	expect(${1:predicate}).toEqual ${2:value}
+#
+#snippet expmatch
+#	expect(${1:predicate}).toMatch /${2:regex}/
+#
+#snippet expdef
+#	expect(${1:predicate}).toBeDefined
+#
+#snippet expnull
+#	expect(${1:predicate}).toBeNull
+#
+#snippet exptrue
+#	expect(${1:predicate}).toBeThruthy
+#
+#snippet expfalse
+#	expect(${1:predicate}).toBeFalsy()
+#
+#snippet expcon
+#	expect(${1:predicate}).toContain ${2:value}
+#
+#snippet befe
+#	# Configuration
+#	beforeEach ->
+#		${1}
+#
+#snippet spyon
+#	spyOn ${1:object}, ${2:method}
+#
+#snippet expcall
+#	expect(${1:predicate}).wasCalled
+#
+#snippet expncall
+#	expect(${1:predicate}).wasNotCalled
+#
+#snippet expcallw
+#	expect(${1:predicate}).wasCalledWith ${2:arguments}
+#
+#snippet expncallw
+#	expect(${1:predicate}).wasNotCalledWith ${2:arguments}
