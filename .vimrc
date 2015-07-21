@@ -1,5 +1,17 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+set nocompatible                " be iMproved
+filetype off                    " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 set autoindent                  " preserve current indent on new lines
 set textwidth=0                 " disable wrap
@@ -28,7 +40,9 @@ set hlsearch                    " highlight search
 set title                       " change the terminal's title
 set ruler                       " ruler
 
-set fillchars=vert:\|           " change splitter
+"set fillchars=vert:\|           " change splitter
+set fillchars+=vert:\ 
+highlight clear SignColumn
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
@@ -64,6 +78,8 @@ nnoremap <CR> :noh<CR><CR>
 " Toggle line numbers and fold column for easy copying:
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
+" bind K to grep word under cursor
+nnoremap K :Ag! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " python specific
 " autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
@@ -130,6 +146,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+nnoremap \ :Ag<SPACE>
+
 " Universal semicolon
 nnoremap ; :
 
@@ -142,8 +160,6 @@ map <F8> :w!<CR>:!scala %<CR>
 map <F7> :w!<CR>:!rdebug %<CR>
 
 source $HOME/.vim/ru_mapping.vimrc
-
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " CoffeeTags
 if executable('coffeetags')
@@ -161,3 +177,4 @@ if executable('coffeetags')
         \ }
         \ }
 endif
+
