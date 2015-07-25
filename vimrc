@@ -3,6 +3,20 @@ filetype off                    " required
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'bling/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdcommenter'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+if v:version >= 703
+  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle'      }
+endif
+
+" Colorschemes
+Plug 'chriskempson/base16-vim'
+Plug 'tomasr/molokai'
 
 " All of your Plugins must be added before the following line
 call plug#end()
