@@ -6,13 +6,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'altercation/vim-colors-solarized'
+Plug 'rking/ag.vim'
+Plug 'majutsushi/tagbar'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-if v:version >= 703
-  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle'      }
-endif
 
 " Colorschemes
 Plug 'chriskempson/base16-vim'
@@ -49,11 +52,14 @@ set title                       " change the terminal's title
 set ruler                       " ruler
 
 "set fillchars=vert:\|           " change splitter
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 highlight clear SignColumn
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " syntax highlighting
 set bg=light
