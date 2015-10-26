@@ -51,9 +51,12 @@ set hlsearch                    " highlight search
 set title                       " change the terminal's title
 set ruler                       " ruler
 
-"set fillchars=vert:\|           " change splitter
-set fillchars+=vert:\
 highlight clear SignColumn
+
+set fillchars=vert:\ 
+set fillchars=stl:\ 
+set fillchars=stlnc:\ 
+hi VertSplit ctermfg=8 ctermbg=Black
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
